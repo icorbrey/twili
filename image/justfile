@@ -1,0 +1,7 @@
+_default:
+    @just --list
+
+# Build the installation image at ./result/iso/nixos-*.iso
+build:
+    @git add .
+    @nix build .#nixosConfigurations.nixos.config.system.build.isoImage

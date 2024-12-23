@@ -14,16 +14,16 @@
 
       modules = [
         disko.nixosModules.disko
-        {
+        ({ modulesPath, ... }: {
           imports = [
-            <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix>
-            <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
+            "${modulesPath}/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+            "${modulesPath}/installer/cd-dvd/channel.nix"
           ];
 
           users.users.root.openssh.authorizedKeys.keys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII+dxJbJs2LiS7QAFFtJsFPsntqru8c/7V/3S+DP8H+m icorbrey@gmail.com"
           ];
-        }
+        })
       ];
     };
   };
